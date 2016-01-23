@@ -1,6 +1,6 @@
-# Request Header Parser Microservice built on Clementine.js FCC Boilerplate
+# URL Shortener Microservice built on Clementine.js FCC Boilerplate
 
-[Request Header Parser Microservice deployed on c9.io](https://whoami-rfprod.c9users.io/)
+[URL Shortener Microservice deployed on c9.io](https://url-shortener-rfprod.c9users.io/)
 
 ## Overview
 

@@ -4,24 +4,35 @@ var path = process.cwd();
 
 module.exports = function (app, passport) {
 
-	app.route('/')
-		.get(function (req, res) {
-			res.sendFile(path + '/public/index.html');
-		});
-
-	app.route('/whoami').get(function (req, res) {
-		//console.log(req.url);
-		var headers = req.headers;
-		var userIP = null;
-		var userLang = null;
-		var userSoft = null;
-		if (userIP != "") userIP = headers['x-forwarded-for'];
-		if (userLang != "") userLang = headers['accept-language'].substr(0,headers['accept-language'].indexOf(','));
-		if (userSoft != "") userSoft = headers['user-agent'].substring(headers['user-agent'].indexOf('(')+1,headers['user-agent'].indexOf(')'));
-		var output = "{\"ipaddress\":\""+userIP+"\",\"language\":\""+userLang+"\",\"software\":\""+userSoft+"\"}";
+	app.route('/').get(function (req, res) {
+		res.sendFile(path + '/public/index.html');
+	});
+	
+	var digitsPattern = new RegExp(/\/[0-9]+/);
+	app.route(digitsPattern).get(function (req, res) {
 		res.format({
 			'application/json': function(){
-				res.send(output);
+				res.send('this should print previously shortened url and reditect user there');
+        		res.end();
+			}
+		});
+	});
+	
+	var endpointPattern = new RegExp(/^\/new\/.+/);
+	var urlPattern = new RegExp(/^https?:\/\/(www\.)?[0-9a-zA-Z][0-9a-zA-Z_-]+\.[a-zA-Z][a-zA-Z]+$/);
+	var overridePattern = new RegExp(/.+\?allow\=true$/);
+	app.route(endpointPattern).get(function (req, res) {
+		var urlParam = req.url.substr(5,req.url.length);
+		var urlMatches = urlParam.match(urlPattern);
+		var overrideMatch = urlParam.match(overridePattern);
+		var originalURL = null;
+		var shortURL = null;
+		var output = "{\"original_url\":\""+originalURL+"\",\"short_url\":\""+shortURL+"\"}";
+		res.format({
+			'application/json': function(){
+				//res.send(output);
+				if (urlMatches !== null) res.send(urlParam+"\n"+"url pattern match: "+urlMatches[0]);
+				else res.send(urlParam+"\n"+"url pattern match: "+urlMatches+"\n"+"overriding url validation: "+overrideMatch);
         		res.end();
 			}
 		});
