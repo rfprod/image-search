@@ -1,6 +1,6 @@
-# Timestamp Microservice built on Clementine.js FCC Boilerplate
+# Request Header Parser Microservice built on Clementine.js FCC Boilerplate
 
-[Timestamp Microservice deployed on c9.io](https://timestamp-microservice-rfprod.c9users.io/)
+[Request Header Parser Microservice deployed on c9.io](https://whoami-rfprod.c9users.io/)
 
 ## Overview
 

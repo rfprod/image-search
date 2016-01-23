@@ -9,29 +9,16 @@ module.exports = function (app, passport) {
 			res.sendFile(path + '/public/index.html');
 		});
 
-	var pattern = new RegExp(/\/.+/);
-	app.route(pattern).get(function (req, res) {
+	app.route('/whoami').get(function (req, res) {
 		//console.log(req.url);
-		var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "November", "October", "December"];
-		var urlParam = req.url.substr(1,req.url.length);
-		var unixTime = null;
-		var naturalTime = null;
-		if (urlParam != "" && urlParam != null){
-			if (urlParam.indexOf("%20") == -1) {
-				urlParam = parseInt(urlParam);
-				naturalTime = months[(new Date(urlParam).getMonth()+1)]+" "+(new Date(urlParam).getDate())+", "+(new Date(urlParam).getFullYear());
-			}else{
-				//console.log(unescape(urlParam));
-				urlParam = Date.parse(unescape(urlParam));
-				naturalTime = "\""+months[(new Date(urlParam).getMonth())]+" "+(new Date(urlParam).getDate())+", "+(new Date(urlParam).getFullYear())+"\"";
-			}
-			unixTime = new Date(urlParam).getTime();
-		}
-		if (isNaN(unixTime)){
-			unixTime = null;
-			naturalTime = null;
-		}
-		var output = "{\"unix\": "+unixTime+", \"natural\": "+naturalTime+"}";
+		var headers = req.headers;
+		var userIP = null;
+		var userLang = null;
+		var userSoft = null;
+		if (userIP != "") userIP = headers['x-forwarded-for'];
+		if (userLang != "") userLang = headers['accept-language'].substr(0,headers['accept-language'].indexOf(','));
+		if (userSoft != "") userSoft = headers['user-agent'].substring(headers['user-agent'].indexOf('(')+1,headers['user-agent'].indexOf(')'));
+		var output = "{\"ipaddress\":\""+userIP+"\",\"language\":\""+userLang+"\",\"software\":\""+userSoft+"\"}";
 		res.format({
 			'application/json': function(){
 				res.send(output);

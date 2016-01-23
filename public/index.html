@@ -1,41 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Timestamp Microservice</title>
+    <title>Request Header Parser Microservice</title>
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <link href="/public/css/bootstrap.min.css" rel="stylesheet">
     <script src="/public/js/bootstrap.min.js"></script>
   </head>
   <body>
     <div class="container-fluid">
-      <h3>Timestamp Microservice <a class="btn btn-primary btn-info" href="https://github.com/rfprod/timestamp-microservice" target=_blank>GitHub Repo</a></h3>
+      <h3>Request Header Parser Microservice <a class="btn btn-primary btn-info" href="https://github.com/rfprod/whoami" target=_blank>GitHub Repo</a></h3>
       <div class="panel panel-default">
-        <div class="panel-heading">Timestamp Microservise description</div>
+        <div class="panel-heading">Request Header Parser Microservice</div>
         <div class="panel-body">
           <ul>
-            <li>Input date in format:
-              <ul>
-                <li>January 1, 2016</li>
-                <li>1450137600</li>
-              </ul>
-            <li>Returns null values if parapeter is not provided or input format is invalid</li>
-            <li>Sample queries:
-              <ul>
-                <li><a href="https://timestamp-microservice-rfprod.c9users.io/December%2015,%202015" target="test" title="use Ctrl+click to open in new window, else output will be shown in iframe beneath Timestamp Microservice description panel">https://timestamp-microservice-rfprod.c9users.io/December%2015,%202015</a></li>
-                <li><a href="https://timestamp-microservice-rfprod.c9users.io/1450137600" target="test" title="use Ctrl+click to open in new window, else output will be shown in iframe beneath Timestamp Microservice description panel">https://timestamp-microservice-rfprod.c9users.io/1450137600</a></li>
-                <li><a href="https://timestamp-microservice-rfprod.c9users.io/this%20is%20not%20a%20valid%20date" target="test" title="use Ctrl+click to open in new window, else output will be shown in iframe beneath Timestamp Microservice description panel">https://timestamp-microservice-rfprod.c9users.io/this%20is%20not%20a%20valid%20date</a></li>
-              </ul>
-            </li>
-            <li>Output examples:
-              <ul>
-                <li>{ "unix": 1450137600, "natural": "December 15, 2015" }</li>
-                <li>{ "unix": null, "natural": null }</li>
-              </ul>
-            </li>
+            <li>Shows the IP address, language and operating system for current session. <button class="btn btn-primary btn-success" href="https://whoami-rfprod.c9users.io/" target="test">Know Who You Are</button></li>
           </ul>
         </div>
       </div>
       <iframe name="test" src="#" style="width:100%;border:0;"></iframe>
+      <script>
+        $(document).ready(function(){
+          $('iframe[name=test]').attr('src', 'https://whoami-rfprod.c9users.io/whoami');
+        });
+      </script>
     </div>
   </body>
 </html>
