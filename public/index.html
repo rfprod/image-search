@@ -24,12 +24,19 @@
             </li>
             <li>Example JSON output:
               <ul>
-                <li>{ "original_url": "http://freecodecamp.com/news", "short_url": "https://shurli.herokuapp.com/1" }</li>
+                <li>{ "original_url": "https://iana.org", "short_url": "https://url-shortener-rfprod.c9users.io/1" }</li>
               </ul>
             </li>
             <li>URL shortening results retrieval:
               <ul>
-                <li><a href="https://url-shortener-rfprod.c9users.io/1" target="test" title="this link will redirect to URL">https://url-shortener-rfprod.c9users.io/1</a></li>
+                <li><a href="https://url-shortener-rfprod.c9users.io/1" target=_blank title="this link will redirect to valid URL">https://url-shortener-rfprod.c9users.io/1</a></li>
+                <li><a href="https://url-shortener-rfprod.c9users.io/2" target=_blank title="this link will not redirect because stored URL is invalid">https://url-shortener-rfprod.c9users.io/2</a></li>
+                <li><a href="https://url-shortener-rfprod.c9users.io/3" target=_blank title="this link will redirect to valid URL">https://url-shortener-rfprod.c9users.io/3</a></li>
+              </ul>
+            </li>
+            <li>Debug utility:
+              <ul>
+                <li><a href="https://url-shortener-rfprod.c9users.io/showall" target="test" title="this link will list all shortened URLs">Show all shortened URLs</a></li>
               </ul>
             </li>
           </ul>
