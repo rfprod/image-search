@@ -1,6 +1,6 @@
-# URL Shortener Microservice built on Clementine.js FCC Boilerplate
+# Image Search Abstraction Layer built on Clementine.js FCC Boilerplate
 
-[URL Shortener Microservice deployed on c9.io](https://url-shortener-rfprod.c9users.io/)
+[Image Search Abstraction Layer deployed on c9.io](https://image-search-rfprod.c9users.io/)
 
 ## Overview
 

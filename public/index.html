@@ -1,42 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>URL Shortener Microservice</title>
+    <title>Image Search Abstraction Layer</title>
     <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
     <link href="/public/css/bootstrap.min.css" rel="stylesheet">
     <script src="/public/js/bootstrap.min.js"></script>
   </head>
   <body>
     <div class="container-fluid">
-      <h3>URL Shortener Microservice <a class="btn btn-primary btn-info" href="https://github.com/rfprod/url-shortener-microservice" target=_blank>GitHub Repo</a></h3>
+      <h3>Image Search Abstraction Layer <a class="btn btn-primary btn-info" href="https://github.com/rfprod/image-search" target=_blank>GitHub Repo</a></h3>
       <div class="panel panel-default">
-        <div class="panel-heading">URL Shortener Microservice</div>
+        <div class="panel-heading">Image Search Abstraction Layer description</div>
         <div class="panel-body">
           <ul>
-            <li>User can pass a URL as a parameter like and will receive a shortened URL in the JSON response.</li>
-            <li>Create shortened URL examples:
-              <ul> if URL actually exists
-                <li><a href="https://url-shortener-rfprod.c9users.io/new/https://iana.org" target="test">https://url-shortener-rfprod.c9users.io/new/https://iana.org</a></li>
-              </ul>
-              <ul> if URL does not actually exist
-                <li><a href="https://url-shortener-rfprod.c9users.io/new/invalidURL?allow=true" target="test">https://url-shortener-rfprod.c9users.io/new/invalidURL?allow=true</a></li>
+            <li>User can get the image URLs, alt text and page urls for a set of images relating to a given search string.</li>
+            <li>User can paginate through the responses by adding a <code>?offset=2</code> parameter to the URL.</li>
+            <li>User can pass keywords to search for relevant images like this:
+              <ul>
+                <li><a href="https://image-search-rfprod.c9users.io/imagesearch/booyakasha?offset=10" target="test">https://image-search-rfprod.c9users.io/imagesearch/booyakasha?offset=10</a></li>
               </ul>
             </li>
-            <li>Example JSON output:
+            <li>User can browse recent queries for images like this:
               <ul>
-                <li>{ "original_url": "https://iana.org", "short_url": "https://url-shortener-rfprod.c9users.io/1" }</li>
-              </ul>
-            </li>
-            <li>URL shortening results retrieval:
-              <ul>
-                <li><a href="https://url-shortener-rfprod.c9users.io/1" target=_blank title="this link will redirect to valid URL">https://url-shortener-rfprod.c9users.io/1</a></li>
-                <li><a href="https://url-shortener-rfprod.c9users.io/2" target=_blank title="this link will not redirect because stored URL is invalid">https://url-shortener-rfprod.c9users.io/2</a></li>
-                <li><a href="https://url-shortener-rfprod.c9users.io/3" target=_blank title="this link will redirect to valid URL">https://url-shortener-rfprod.c9users.io/3</a></li>
-              </ul>
-            </li>
-            <li>Debug utility:
-              <ul>
-                <li><a href="https://url-shortener-rfprod.c9users.io/showall" target="test" title="this link will list all shortened URLs">Show all shortened URLs</a></li>
+                <li><a href="https://image-search-rfprod.c9users.io/latest/imagesearch/" target="test">https://image-search-rfprod.c9users.io/latest/imagesearch/</a></li>
               </ul>
             </li>
           </ul>
