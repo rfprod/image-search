@@ -17,12 +17,27 @@
             <li>User can paginate through the responses by adding a <code>?offset=2</code> parameter to the URL.</li>
             <li>User can pass keywords to search for relevant images like this:
               <ul>
-                <li><a href="https://image-search-rfprod.c9users.io/imagesearch/booyakasha?offset=10" target="test">https://image-search-rfprod.c9users.io/imagesearch/booyakasha?offset=10</a></li>
+                <li><a href="https://image-search-rfprod.c9users.io/imagesearch/scifi?offset=10" target="test">https://image-search-rfprod.c9users.io/imagesearch/scifi?offset=10</a></li>
+              </ul>
+            </li>
+            <li>Offset must be defined, its absence results in error:
+              <ul>
+                <li><a href="https://image-search-rfprod.c9users.io/imagesearch/scifi" target="test">https://image-search-rfprod.c9users.io/imagesearch/scifi</a></li>
               </ul>
             </li>
             <li>User can browse recent queries for images like this:
               <ul>
                 <li><a href="https://image-search-rfprod.c9users.io/latest/imagesearch/" target="test">https://image-search-rfprod.c9users.io/latest/imagesearch/</a></li>
+              </ul>
+            </li>
+            <li>Example response for image search request:
+              <ul>
+                <li><code>[<br/>{"url":"http://image_url-1","snippet":"title 1","thumbnail":"http://thumbnail_url-1","context":"http://context_url-1"},<br/>{"url":"http://image_url-2","snippet":"title 2","thumbnail":"http://thumbnail_url-2","context":"http://context_url-2"}<br/>]</code></li>
+              </ul>
+            </li>
+            <li>Example response for recent queries request:
+              <ul>
+                <li><code>[<br/>{"when":"2016-01-26 18:06","term":"term 1"},<br/>{"when":"2016-01-26 18:06","term":"term 2"}<br/>]</code></li>
               </ul>
             </li>
           </ul>
