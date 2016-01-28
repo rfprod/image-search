@@ -138,7 +138,7 @@ module.exports = function(app){
 						  	console.log('JSON is OK.');
 						  	output.push(JSON.parse(item));
 						}else{
-							output.push('There was an error parsing JSON. This is most probably due data from Custom Search service response.');
+							output.push(JSON.parse('{"Error":"There was an error parsing JSON. This is most probably due data from Custom Search service response."}'));
 						}
 					}
 					console.log(output);
