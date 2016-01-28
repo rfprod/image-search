@@ -13,21 +13,19 @@
         <div class="panel-heading">Image Search Abstraction Layer description</div>
         <div class="panel-body">
           <ul>
-            <li>User can get the image URLs, alt text and page urls for a set of images relating to a given search string.</li>
-            <li>User can paginate through the responses by adding a <code>?offset=2</code> parameter to the URL.</li>
-            <li>User can pass keywords to search for relevant images like this:
+            <li>User can get the image URLs, alt text and page urls for a set of images relating to a given search string:
               <ul>
-                <li><a href="https://image-search-rfprod.c9users.io/imagesearch/scifi?offset=10" target="test">https://image-search-rfprod.c9users.io/imagesearch/scifi?offset=10</a></li>
+                <li><a href="https://image-search-rfprod.c9users.io/imagesearch/scifi" target="test">https://image-search-rfprod.c9users.io/imagesearch/scifi</a> <a href="https://image-search-rfprod.c9users.io/imagesearch/scifi" target=_blank><span class="glyphicon glyphicon-new-window"></span></a></li>
               </ul>
             </li>
-            <li>Offset must be defined, its absence results in error:
+            <li>User can paginate through the responses by adding a <code>?offset=2</code> parameter to the URL:
               <ul>
-                <li><a href="https://image-search-rfprod.c9users.io/imagesearch/scifi" target="test">https://image-search-rfprod.c9users.io/imagesearch/scifi</a></li>
+                <li><a href="https://image-search-rfprod.c9users.io/imagesearch/scifi?offset=10" target="test">https://image-search-rfprod.c9users.io/imagesearch/scifi?offset=10</a> <a href="https://image-search-rfprod.c9users.io/imagesearch/scifi?offset=10" target=_blank><span class="glyphicon glyphicon-new-window"></span></a></li>
               </ul>
             </li>
             <li>User can browse recent queries for images like this:
               <ul>
-                <li><a href="https://image-search-rfprod.c9users.io/latest/imagesearch/" target="test">https://image-search-rfprod.c9users.io/latest/imagesearch/</a></li>
+                <li><a href="https://image-search-rfprod.c9users.io/latest/imagesearch/" target="test">https://image-search-rfprod.c9users.io/latest/imagesearch/</a> <a href="https://image-search-rfprod.c9users.io/latest/imagesearch/" target=_blank><span class="glyphicon glyphicon-new-window"></span></a></li>
               </ul>
             </li>
             <li>Example response for image search request:
@@ -43,7 +41,13 @@
           </ul>
         </div>
       </div>
-      <iframe name="test" src="#" style="width:100%;border:0;"></iframe>
+      <iframe class="wordwrap" name="test" onload="resizeIframe(this);" src="#" style="width:100%;hidden;border:0;"></iframe>
+      <script>
+        function resizeIframe(obj) {
+          obj.style.height = '0px';
+          obj.style.height = (obj.contentWindow.document.body.scrollHeight+20) + 'px';
+        }
+      </script>
     </div>
   </body>
 </html>
